@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\LyleGimpPaypalLabel]
+@="Process as PayPal Label with Script-Fu"
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\LyleGimpPaypalLabel\command]
+@="\"C:\\Documents and Settings\\Lyle\\.gimp-2.6\\scripts\\script-fu-process-shipping-label.bat\" \"%1\""
+#@="C:\\Documents and Settings\\Lyle\\.gimp-2.6\\scripts\script-fu-process-shipping-label.bat"
