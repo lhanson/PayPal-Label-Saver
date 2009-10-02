@@ -1,5 +1,5 @@
 (define (script-fu-process-shipping-label infile)
-  (let* ( (image    (car (gimp-file-load RUN-NONINTERACTIVE infile infile)))
+    (let* ( (image    (car (gimp-file-load RUN-NONINTERACTIVE infile infile)))
 				  ; the initial layer is page 2, delete it
           (drawable (car (gimp-image-active-drawable image)))
 					(gimp-drawable-delete drawable)
@@ -9,9 +9,9 @@
 					(len (string-length infile))
 					(extension (substring infile (- len 4) len))
 					(outfile)
-				)
+		 )
 		 ; Select the label section of the image
-		 (gimp-rect-select image 115 82 603 413 CHANNEL-OP-REPLACE FALSE 0)
+		 (gimp-rect-select image 120 70 614 440 CHANNEL-OP-REPLACE FALSE 0)
 		 ; invert and delete everything else
 		 (gimp-selection-invert image)
 		 (gimp-edit-clear drawable)
@@ -20,15 +20,8 @@
 		 (gimp-edit-cut drawable)
 		 (gimp-selection-clear image)
 		 (gimp-edit-paste drawable TRUE)
-   	 (set! layer (car (gimp-image-get-floating-sel image)))
-		 ; rotate 90deg CCW
-		 (gimp-drawable-transform-rotate-simple layer
-			                                      ROTATE-270
-	  																				TRUE
-																						0
-																						0
-																						FALSE)
-		 (gimp-layer-translate layer -250 0)
+    	 (set! layer (car (gimp-image-get-floating-sel image)))
+		 (gimp-layer-translate layer 0 -250)
 		 (gimp-floating-sel-anchor layer)
 		 ; if the filename already ends in .png, name the output something different
 		 ; otherwise save it as a png
@@ -41,7 +34,7 @@
 		 ; for debugging...
 		 ;(gimp-image-clean-all image)
 		 ;(gimp-display-new image)
-	)
+    )
 )
 
 (script-fu-register "script-fu-process-shipping-label"
