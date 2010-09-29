@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\GimpPaypalLabel]
+@="Process as PayPal Shipping Label"
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\GimpPaypalLabel\command]
+@="\"C:\\Users\\USERNAME\\.gimp-2.6\\scripts\\processPayPalLabel.bat\" \"%1\""

@@ -1,0 +1,54 @@
+Purpose
+=======
+Do you print a lot of PayPal shipping labels, but get frustrated wasting half a
+page of label paper because the generated label is half instructions and other
+info? This handy project will automatically generate a printable document which
+only contains the mailing label portion.
+
+Prerequisite: you need the GIMP installed (http://www.gimp.org/)
+
+
+Installation instructions
+=========================
+
+OS X
+====
+On OS X we hook into the PDF Services available in the print dialog to
+provide a menu option which automatically crops the PDF from PayPal and
+sends it to your selected printer.
+
+- Copy script-fu-process-shipping-label.scm into ~/.gimp-2.x/scripts
+- Copy the "Print as PayPal Shipping Label" script into
+  ~/Library/PDF Services/ and edit the variables at the top of the newly-copied
+  script to match your environment.
+- Now when you print a PayPal-generated shipping label and the OS X print
+  dialog is shown, select your printer, then click the PDF dropdown button and
+  choose "Print as PayPal Shipping Label".
+
+Other Unix-like systems
+=======================
+- Copy script-fu-process-shipping-label.scm to ~/.gimp-2.x/scripts
+- Copy printPayPalLabel.sh to somewhere on your $PATH (optional) and edit the
+  variables at the top of the script to match your environment.
+- To process the PayPal label, execute printPayPalLabel.sh with the filename
+  as input. Assumes the existence of the 'lpr' command and prints to the
+  default printer.
+
+Windows
+=======
+- Copy script-fu-process-shipping-label.scm and processPayPalLabel.bat into 
+  your GIMP installation's scripts directory.
+- Edit processPayPalLabel.bat to set the correct path to your GIMP executable.
+- Edit the last line of processPayPalLabel.reg to point to the batch file from
+  the previous step.
+- Make a backup of the Windows registry, since you're about to alter it and I
+  won't have you blaming me for any Windows problems.
+- Double-click the processPayPalLabel.reg file to merge the entries into the
+  registry. This will give you a menu item called "Process as PayPal Shipping
+  Label" when you right-click a file. Selecting this menu item will create
+  a .png file of the printable label in the same directory.
+
+
+Contact
+=======
+For questions or corrections, contact me at <lyle2.0@gmail.com>
